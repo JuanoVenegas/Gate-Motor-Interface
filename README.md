@@ -1,2 +1,30 @@
-# Gate-Motor-Interface
-Python interface to a Gate Motor controller using Arduino.
+# Gate Motor Interface
+
+Python interface to a gate motor controller using a micro-controller (uC).
+
+
+
+## Dependencies
+
+- **wxPython:** pip install wxPython
+- **pyserial:** pip install pyserial
+
+*In Linux run with __sudo__.*
+*In Linux, running pyserial code could need __sudo__.*
+
+
+
+## Instructions
+
+Modify line 11 in `src/main.py` to run as simulation (program uses `src/uC_simulation.py` ) or to connect to a real micro controller (using `src/uC_interface.py`).
+
+Modify communication functions in `src/uC_interface.py` to adjust to your own communication protocol while mantaining consistency with the states defined in `src/gate.py` and in the following state machine diagram (those states are interpreted in the GUI code in `src/main.py`).
+
+
+
+## State Machine
+
+ ![sm](state_machine.png)
+ 
+ 
+
