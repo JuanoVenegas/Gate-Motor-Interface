@@ -16,4 +16,3 @@ class Gate():
 	def setState(self, newState):
 		self.prev_state = self.state
 		self.state = newState
-

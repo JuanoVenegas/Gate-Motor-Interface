@@ -23,7 +23,7 @@ def isLinux():
 
 # Find an element in an object. Print list with string matches.
 def find(st, obj):
-	print filter(lambda x: st in x, dir(obj))
+	print(filter(lambda x: st in x, dir(obj)))
 
 
 # ----- Main functions ---------------------------------------------------------
@@ -52,7 +52,7 @@ class GMI( GateMotorInterface.GateMotorInterfaceFrame ):
 		self.animation_timer.Start(10)
 		
 		# Indicator
-		self.stateTransitionLabel()
+		#self.stateTransitionLabel()
 
 		# Change serial port text
 		if isLinux():
@@ -91,23 +91,30 @@ class GMI( GateMotorInterface.GateMotorInterfaceFrame ):
 
 
 	def appendTerminal(self, s):
-		print s
+		print(s)
 		self.m_textCtrl_console.Value += '\n' + s
 
 
 	def stateTransitionLabel(self):
-		self.m_staticText_opening.Hide()
-		self.m_staticText_closing.Hide()
-		self.m_staticText_stopped.Hide()
+		#self.m_staticText_opening.Hide()
+		#self.m_staticText_closing.Hide()
+		#self.m_staticText_stopped.Hide()
 
 		if self.gate.state == g.GateStates.Opening:
 			self.m_staticText_opening.Show()
+			self.m_staticText_closing.Hide()
+			self.m_staticText_stopped.Hide()
 		if self.gate.state == g.GateStates.Closing:
+			self.m_staticText_opening.Hide()
 			self.m_staticText_closing.Show()
+			self.m_staticText_stopped.Hide()
 		if self.gate.state in [g.GateStates.Opened, g.GateStates.Closed, g.GateStates.Stopped, g.GateStates.Error]:
-			self.m_staticText_stopped.SetLabel(('--%s--'%g.GateStates.ToString(self.gate.state)).upper())
+			self.m_staticText_opening.Hide()
+			self.m_staticText_closing.Hide()			
 			self.m_staticText_stopped.Show()
+			self.m_staticText_stopped.SetLabel(('--%s--'%g.GateStates.ToString(self.gate.state)).upper())
 
+		#self.m_panel_labelState.Layout()
 		self.bSizer_stateLabel.Layout()
 	
 
@@ -183,5 +190,3 @@ if __name__ == "__main__":
 	frame = GMI(None)
 	frame.Show(True)
 	app.MainLoop()
-
-	

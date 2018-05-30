@@ -4,17 +4,26 @@ Python interface to a gate motor controller using a microcontroller (uC).
 
 
 
+## Run
+
+Run program with:
+```
+	cd src
+	python main.py
+```
+
+
+
 ## Dependencies
 
-- **wxPython:** pip install wxPython
-- **pyserial:** pip install pyserial
+- **wxPython:** `pip install wxPython`
+- **pyserial:** `pip install pyserial`
 
-*In Linux run with __sudo__.*
+*Note: In Linux run `pip`/`pip3` with `sudo`. To install wxPython, first install the dependencies listed in:  https://github.com/wxWidgets/Phoenix#prerequisites*
 
-*In Linux, running pyserial code could need __sudo__ or changing user groups as below:*
+*Note: In Linux, running pyserial code could need `sudo` or changing user groups as below:*
 
 ```sudo usermod -a -G dialout $USER```
-
 
 
 ## Instructions
@@ -32,4 +41,3 @@ Python interface to a gate motor controller using a microcontroller (uC).
  ![sm](state_machine.png)
  
  
-

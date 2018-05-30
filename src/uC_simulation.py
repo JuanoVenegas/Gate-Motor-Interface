@@ -92,19 +92,19 @@ class uC_interface():
 
 if __name__ == '__main__':
 	a = uC_interface()
-	print 'Connected:', a.connected
-	print 'State', a.requestState(True)
+	print('Connected:', a.connected)
+	print('State', a.requestState(True))
 
 	for i in range(2):
-		print 'Signal', a.sendSignal()
-		print 'State', a.requestState(True)
+		print('Signal', a.sendSignal())
+		print('State', a.requestState(True))
 
 		for i in range(3):
 			time.sleep(1)
-			print 'State', a.requestState(True)
+			print('State', a.requestState(True))
 
 	for i in range(2):
-		print 'Signal', a.sendSignal()
-		print 'State', a.requestState(True)
+		print('Signal', a.sendSignal())
+		print('State', a.requestState(True))
 		time.sleep(1)
 

@@ -69,7 +69,7 @@ class uC_interface():
 		if self.sendMsg('1'):	# If successful
 			# Then receive
 			state = readMsg()
-			# Return as an int to be consistend with GateStates
+			# Return as an int to be consistent with GateStates
 			return int(state)
 
 		# Error happened
@@ -85,10 +85,10 @@ if __name__ == '__main__':
 	uC = uC_interface()
 	assert uC.connected, 'Connection failed'
 
-	print requestState()
+	print(requestState())
 
 	uC.sendSignal()
 
 	for i in range(5):
-		print uc.requestState()
+		print(uc.requestState())
 		time.sleep(1)

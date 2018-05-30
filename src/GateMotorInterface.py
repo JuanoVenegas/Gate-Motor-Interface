@@ -29,36 +29,42 @@ class GateMotorInterfaceFrame ( wx.Frame ):
 		
 		bSizer3 = wx.BoxSizer( wx.VERTICAL )
 		
+		self.m_panel_labelState = wx.Panel( self.m_panel1, wx.ID_ANY, wx.DefaultPosition, wx.DefaultSize, wx.TAB_TRAVERSAL )
+		self.m_panel_labelState.SetBackgroundColour( wx.Colour( 255, 255, 255 ) )
+		
 		self.bSizer_stateLabel = wx.BoxSizer( wx.HORIZONTAL )
 		
-		self.m_staticline1 = wx.StaticLine( self.m_panel1, wx.ID_ANY, wx.DefaultPosition, wx.DefaultSize, wx.LI_HORIZONTAL )
+		self.m_staticline1 = wx.StaticLine( self.m_panel_labelState, wx.ID_ANY, wx.DefaultPosition, wx.DefaultSize, wx.LI_HORIZONTAL )
 		self.bSizer_stateLabel.Add( self.m_staticline1, 1, wx.EXPAND |wx.ALL, 5 )
 		
-		self.m_staticText_opening = wx.StaticText( self.m_panel1, wx.ID_ANY, u">> OPENING >>", wx.DefaultPosition, wx.DefaultSize, wx.ALIGN_CENTRE )
+		self.m_staticText_opening = wx.StaticText( self.m_panel_labelState, wx.ID_ANY, u">> OPENING >>", wx.DefaultPosition, wx.DefaultSize, wx.ALIGN_CENTRE )
 		self.m_staticText_opening.Wrap( -1 )
 		self.m_staticText_opening.SetFont( wx.Font( 30, 70, 90, 90, False, wx.EmptyString ) )
 		self.m_staticText_opening.SetForegroundColour( wx.Colour( 0, 255, 0 ) )
 		
 		self.bSizer_stateLabel.Add( self.m_staticText_opening, 0, wx.ALL|wx.ALIGN_CENTER_HORIZONTAL|wx.ALIGN_CENTER_VERTICAL, 5 )
 		
-		self.m_staticText_closing = wx.StaticText( self.m_panel1, wx.ID_ANY, u"<< CLOSING <<", wx.DefaultPosition, wx.DefaultSize, wx.ALIGN_CENTRE )
+		self.m_staticText_closing = wx.StaticText( self.m_panel_labelState, wx.ID_ANY, u"<< CLOSING <<", wx.DefaultPosition, wx.DefaultSize, wx.ALIGN_CENTRE )
 		self.m_staticText_closing.Wrap( -1 )
 		self.m_staticText_closing.SetFont( wx.Font( 30, 70, 90, 90, False, wx.EmptyString ) )
 		self.m_staticText_closing.SetForegroundColour( wx.Colour( 255, 0, 0 ) )
 		
 		self.bSizer_stateLabel.Add( self.m_staticText_closing, 0, wx.ALL|wx.ALIGN_CENTER_HORIZONTAL|wx.ALIGN_CENTER_VERTICAL, 5 )
 		
-		self.m_staticText_stopped = wx.StaticText( self.m_panel1, wx.ID_ANY, u"-- STOPPED --", wx.DefaultPosition, wx.DefaultSize, wx.ALIGN_CENTRE )
+		self.m_staticText_stopped = wx.StaticText( self.m_panel_labelState, wx.ID_ANY, u"-- STOPPED --", wx.DefaultPosition, wx.DefaultSize, wx.ALIGN_CENTRE )
 		self.m_staticText_stopped.Wrap( -1 )
 		self.m_staticText_stopped.SetFont( wx.Font( 30, 70, 90, 90, False, wx.EmptyString ) )
 		
 		self.bSizer_stateLabel.Add( self.m_staticText_stopped, 0, wx.ALL|wx.ALIGN_CENTER_HORIZONTAL|wx.ALIGN_CENTER_VERTICAL, 5 )
 		
-		self.m_staticline2 = wx.StaticLine( self.m_panel1, wx.ID_ANY, wx.DefaultPosition, wx.DefaultSize, wx.LI_HORIZONTAL )
+		self.m_staticline2 = wx.StaticLine( self.m_panel_labelState, wx.ID_ANY, wx.DefaultPosition, wx.DefaultSize, wx.LI_HORIZONTAL )
 		self.bSizer_stateLabel.Add( self.m_staticline2, 1, wx.EXPAND |wx.ALL, 5 )
 		
 		
-		bSizer3.Add( self.bSizer_stateLabel, 0, wx.EXPAND|wx.ALIGN_CENTER_HORIZONTAL, 5 )
+		self.m_panel_labelState.SetSizer( self.bSizer_stateLabel )
+		self.m_panel_labelState.Layout()
+		self.bSizer_stateLabel.Fit( self.m_panel_labelState )
+		bSizer3.Add( self.m_panel_labelState, 0, wx.ALL|wx.EXPAND, 5 )
 		
 		bSizer4 = wx.BoxSizer( wx.HORIZONTAL )
 		
