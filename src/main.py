@@ -83,7 +83,12 @@ class GMI( GateMotorInterface.GateMotorInterfaceFrame ):
 
 	def sendCommand( self, event ):
 		cmd = self.m_textCtrl_consoleInput.Value
-		self.appendTerminal('>> ' + cmd)
+		if self.uC is not None and self.uC.connected:
+			self.uC.sendMsg(cmd)
+			self.appendTerminal('>> ' + cmd)
+		else:
+			self.appendTerminal('>> uController not connected !')
+
 
 	def appendTerminal(self, s):
 		print s

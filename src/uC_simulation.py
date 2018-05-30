@@ -12,7 +12,7 @@ class uC_interface():
 	gate = g.Gate(GS.Closed)		# Internal representation, don't use outside
 
 
-	def __init__(self, COM='asd', baudrate=115200):
+	def __init__(self, COM='sep', baudrate=115200):
 		# Simulates incorrect port
 		# Correct port is 'sep'
 		if COM != 'sep':
@@ -29,8 +29,11 @@ class uC_interface():
 		self.timer.start()
 
 	def transitionTimer(self):
+		if self.gate.state not in [GS.Opening, GS.Closing]:
+			return
+
 		# Simulates an error
-		if int(time.time()) % 2  == 0:
+		if int(time.time()) % 10  == 2:
 			self.gate.setState(GS.Error)
 
 		else:
@@ -39,6 +42,9 @@ class uC_interface():
 			if self.gate.state == GS.Closing:
 				self.gate.setState( GS.Closed )
 
+	def sendMsg(self, msg):
+		if msg == '0':
+			self.sendSignal()
 
 	def sendSignal(self):
 		sg = self.gate
@@ -65,6 +71,7 @@ class uC_interface():
 			sg.setState( GS.Stopped )
 
 		elif sg.state == GS.Error:
+			sg.setState( GS.Closing )
 			sg.setState( GS.Stopped )
 
 		self.initTimer()
@@ -92,8 +99,8 @@ if __name__ == '__main__':
 		print 'Signal', a.sendSignal()
 		print 'State', a.requestState(True)
 
-		for i in range(2):
-			time.sleep(3)
+		for i in range(3):
+			time.sleep(1)
 			print 'State', a.requestState(True)
 
 	for i in range(2):

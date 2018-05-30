@@ -9,8 +9,6 @@ DEFAULT_COM = 'COM3'
 class uC_interface():
 
 	connected = False
-	port = ''
-
 
 	def __init__(self, COM=DEFAULT_COM, baudrate=115200):
 		# Try to init connection
@@ -29,7 +27,7 @@ class uC_interface():
 	def readMsg(self):
 		try:
 			msg = self.com_port.read()
-			return msg
+			return chr( msg )	# Converts btye to str (eg. 48 to '0'. Try: ord('0'))
 		except Exception as e:
 			return -1
 
@@ -52,21 +50,26 @@ class uC_interface():
 
 
 	def close(self):
-		self.com_port.close()
+		try:
+			self.com_port.close()
+		except:
+			pass
 
 
-	def sendSignal(Self):
+	# Send "remote control" signal.
+	def sendSignal(self):
 		# Send signal message
 		# In this case it is '0'
 		return self.sendMsg('0')
 
+
 	def requestState(self):
 		# First send request state message
 		# In this case it is '1'
-		if self.sendMsg('1'):
+		if self.sendMsg('1'):	# If successful
 			# Then receive
 			state = readMsg()
-			# Return as an int
+			# Return as an int to be consistend with GateStates
 			return int(state)
 
 		# Error happened
@@ -80,7 +83,12 @@ class uC_interface():
 
 if __name__ == '__main__':
 	uC = uC_interface()
+	assert uC.connected, 'Connection failed'
 
-	if uC.connected:
-		print requestState()
+	print requestState()
 
+	uC.sendSignal()
+
+	for i in range(5):
+		print uc.requestState()
+		time.sleep(1)

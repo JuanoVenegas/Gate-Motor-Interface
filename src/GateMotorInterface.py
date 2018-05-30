@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*- 
 
 ###########################################################################
-## Python code generated with wxFormBuilder (version Feb 16 2016)
+## Python code generated with wxFormBuilder (version May 28 2018)
 ## http://www.wxformbuilder.org/
 ##
 ## PLEASE DO "NOT" EDIT THIS FILE!
@@ -211,6 +211,7 @@ class GateMotorInterfaceFrame ( wx.Frame ):
 		
 		# Connect Events
 		self.Bind( wx.EVT_KEY_DOWN, self.windowOnKeyDown )
+		self.m_textCtrl_consoleInput.Bind( wx.EVT_TEXT_ENTER, self.sendCommand )
 		self.m_button_sendCommand.Bind( wx.EVT_BUTTON, self.sendCommand )
 		self.m_textCtrl_COM.Bind( wx.EVT_TEXT_ENTER, self.Connect_uC )
 		self.m_button2.Bind( wx.EVT_BUTTON, self.Connect_uC )
@@ -227,6 +228,7 @@ class GateMotorInterfaceFrame ( wx.Frame ):
 	
 	def sendCommand( self, event ):
 		event.Skip()
+	
 	
 	def Connect_uC( self, event ):
 		event.Skip()
