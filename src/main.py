@@ -93,6 +93,9 @@ class GMI( GateMotorInterface.GateMotorInterfaceFrame ):
 	def appendTerminal(self, s):
 		print(s)
 		self.m_textCtrl_console.Value += '\n' + s
+		#self.m_textCtrl_console.Refresh()
+		self.m_textCtrl_console.SetInsertionPointEnd()
+		self.m_textCtrl_console.Refresh()
 
 
 	def stateTransitionLabel(self):

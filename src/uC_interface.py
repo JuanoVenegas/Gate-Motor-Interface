@@ -18,6 +18,7 @@ class uC_interface():
 			self.connected = True
 		
 		except Exception as e:
+			print(e)
 			pass
 
 
@@ -29,6 +30,7 @@ class uC_interface():
 			msg = self.com_port.read()
 			return chr( msg )	# Converts btye to str (eg. 48 to '0'. Try: ord('0'))
 		except Exception as e:
+			print(e)
 			return -1
 
 		return msg
@@ -42,17 +44,20 @@ class uC_interface():
 	# (e.g.: if msg=0, then '0' is sent)
 	def sendMsg(self, msg):
 		msg = str(msg)
+		msg = bytes(msg, 'utf8')
 		try:
 			self.com_port.write(msg)
 			return True
-		except:
+		except Exception as e:
+			print(e)
 			return False
 
 
 	def close(self):
 		try:
 			self.com_port.close()
-		except:
+		except Exception as e:
+			print(e)
 			pass
 
 
@@ -68,7 +73,7 @@ class uC_interface():
 		# In this case it is '1'
 		if self.sendMsg('1'):	# If successful
 			# Then receive
-			state = readMsg()
+			state = self.readMsg()
 			# Return as an int to be consistent with GateStates
 			return int(state)
 

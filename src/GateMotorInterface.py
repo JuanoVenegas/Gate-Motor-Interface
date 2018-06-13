@@ -4,7 +4,7 @@
 ## Python code generated with wxFormBuilder (version May 28 2018)
 ## http://www.wxformbuilder.org/
 ##
-## PLEASE DO "NOT" EDIT THIS FILE!
+## PLEASE DO *NOT* EDIT THIS FILE!
 ###########################################################################
 
 import wx
@@ -17,9 +17,9 @@ import wx.xrc
 class GateMotorInterfaceFrame ( wx.Frame ):
 	
 	def __init__( self, parent ):
-		wx.Frame.__init__ ( self, parent, id = wx.ID_ANY, title = u"Gate Motor Interface", pos = wx.DefaultPosition, size = wx.Size( 965,734 ), style = wx.CAPTION|wx.CLOSE_BOX|wx.TAB_TRAVERSAL )
+		wx.Frame.__init__ ( self, parent, id = wx.ID_ANY, title = u"Gate Motor Interface", pos = wx.DefaultPosition, size = wx.Size( 965,564 ), style = wx.CAPTION|wx.CLOSE_BOX|wx.TAB_TRAVERSAL )
 		
-		self.SetSizeHintsSz( wx.DefaultSize, wx.DefaultSize )
+		self.SetSizeHints( wx.DefaultSize, wx.DefaultSize )
 		self.SetBackgroundColour( wx.Colour( 255, 255, 255 ) )
 		
 		bSizer2 = wx.BoxSizer( wx.VERTICAL )
@@ -39,21 +39,21 @@ class GateMotorInterfaceFrame ( wx.Frame ):
 		
 		self.m_staticText_opening = wx.StaticText( self.m_panel_labelState, wx.ID_ANY, u">> OPENING >>", wx.DefaultPosition, wx.DefaultSize, wx.ALIGN_CENTRE )
 		self.m_staticText_opening.Wrap( -1 )
-		self.m_staticText_opening.SetFont( wx.Font( 30, 70, 90, 90, False, wx.EmptyString ) )
+		self.m_staticText_opening.SetFont( wx.Font( 30, wx.FONTFAMILY_DEFAULT, wx.FONTSTYLE_NORMAL, wx.FONTWEIGHT_NORMAL, False, wx.EmptyString ) )
 		self.m_staticText_opening.SetForegroundColour( wx.Colour( 0, 255, 0 ) )
 		
 		self.bSizer_stateLabel.Add( self.m_staticText_opening, 0, wx.ALL|wx.ALIGN_CENTER_HORIZONTAL|wx.ALIGN_CENTER_VERTICAL, 5 )
 		
 		self.m_staticText_closing = wx.StaticText( self.m_panel_labelState, wx.ID_ANY, u"<< CLOSING <<", wx.DefaultPosition, wx.DefaultSize, wx.ALIGN_CENTRE )
 		self.m_staticText_closing.Wrap( -1 )
-		self.m_staticText_closing.SetFont( wx.Font( 30, 70, 90, 90, False, wx.EmptyString ) )
+		self.m_staticText_closing.SetFont( wx.Font( 30, wx.FONTFAMILY_DEFAULT, wx.FONTSTYLE_NORMAL, wx.FONTWEIGHT_NORMAL, False, wx.EmptyString ) )
 		self.m_staticText_closing.SetForegroundColour( wx.Colour( 255, 0, 0 ) )
 		
 		self.bSizer_stateLabel.Add( self.m_staticText_closing, 0, wx.ALL|wx.ALIGN_CENTER_HORIZONTAL|wx.ALIGN_CENTER_VERTICAL, 5 )
 		
 		self.m_staticText_stopped = wx.StaticText( self.m_panel_labelState, wx.ID_ANY, u"-- STOPPED --", wx.DefaultPosition, wx.DefaultSize, wx.ALIGN_CENTRE )
 		self.m_staticText_stopped.Wrap( -1 )
-		self.m_staticText_stopped.SetFont( wx.Font( 30, 70, 90, 90, False, wx.EmptyString ) )
+		self.m_staticText_stopped.SetFont( wx.Font( 30, wx.FONTFAMILY_DEFAULT, wx.FONTSTYLE_NORMAL, wx.FONTWEIGHT_NORMAL, False, wx.EmptyString ) )
 		
 		self.bSizer_stateLabel.Add( self.m_staticText_stopped, 0, wx.ALL|wx.ALIGN_CENTER_HORIZONTAL|wx.ALIGN_CENTER_VERTICAL, 5 )
 		
@@ -70,7 +70,7 @@ class GateMotorInterfaceFrame ( wx.Frame ):
 		
 		self.m_staticText1 = wx.StaticText( self.m_panel1, wx.ID_ANY, u"CLOSED  --|", wx.DefaultPosition, wx.DefaultSize, 0 )
 		self.m_staticText1.Wrap( -1 )
-		self.m_staticText1.SetFont( wx.Font( 30, 70, 90, 90, False, wx.EmptyString ) )
+		self.m_staticText1.SetFont( wx.Font( 30, wx.FONTFAMILY_DEFAULT, wx.FONTSTYLE_NORMAL, wx.FONTWEIGHT_NORMAL, False, wx.EmptyString ) )
 		
 		bSizer4.Add( self.m_staticText1, 0, wx.ALL|wx.ALIGN_CENTER_VERTICAL, 5 )
 		
@@ -86,12 +86,15 @@ class GateMotorInterfaceFrame ( wx.Frame ):
 		
 		self.m_staticText11 = wx.StaticText( self.m_panel1, wx.ID_ANY, u"|--  OPENED", wx.DefaultPosition, wx.DefaultSize, 0 )
 		self.m_staticText11.Wrap( -1 )
-		self.m_staticText11.SetFont( wx.Font( 30, 70, 90, 90, False, wx.EmptyString ) )
+		self.m_staticText11.SetFont( wx.Font( 30, wx.FONTFAMILY_DEFAULT, wx.FONTSTYLE_NORMAL, wx.FONTWEIGHT_NORMAL, False, wx.EmptyString ) )
 		
 		bSizer4.Add( self.m_staticText11, 0, wx.ALL|wx.ALIGN_CENTER_VERTICAL, 5 )
 		
 		
 		bSizer3.Add( bSizer4, 0, wx.EXPAND, 5 )
+		
+		self.m_staticline3 = wx.StaticLine( self.m_panel1, wx.ID_ANY, wx.DefaultPosition, wx.DefaultSize, wx.LI_HORIZONTAL )
+		bSizer3.Add( self.m_staticline3, 0, wx.EXPAND |wx.ALL, 5 )
 		
 		bSizer5 = wx.BoxSizer( wx.VERTICAL )
 		
@@ -104,12 +107,6 @@ class GateMotorInterfaceFrame ( wx.Frame ):
 		self.m_panel2.SetBackgroundColour( wx.Colour( 255, 255, 255 ) )
 		
 		bSizer6 = wx.BoxSizer( wx.VERTICAL )
-		
-		self.m_textCtrl_console = wx.TextCtrl( self.m_panel2, wx.ID_ANY, u"[ Terminal ]", wx.DefaultPosition, wx.DefaultSize, wx.TE_MULTILINE|wx.TE_READONLY|wx.TE_WORDWRAP )
-		self.m_textCtrl_console.SetForegroundColour( wx.Colour( 0, 255, 0 ) )
-		self.m_textCtrl_console.SetBackgroundColour( wx.Colour( 0, 0, 0 ) )
-		
-		bSizer6.Add( self.m_textCtrl_console, 1, wx.ALL|wx.EXPAND, 5 )
 		
 		bSizer9 = wx.BoxSizer( wx.HORIZONTAL )
 		
@@ -124,6 +121,17 @@ class GateMotorInterfaceFrame ( wx.Frame ):
 		
 		
 		bSizer6.Add( bSizer9, 0, wx.EXPAND, 5 )
+		
+		bSizer16 = wx.BoxSizer( wx.VERTICAL )
+		
+		self.m_textCtrl_console = wx.TextCtrl( self.m_panel2, wx.ID_ANY, u"[ Terminal ]", wx.DefaultPosition, wx.DefaultSize, wx.TE_MULTILINE|wx.TE_READONLY|wx.TE_WORDWRAP|wx.VSCROLL )
+		self.m_textCtrl_console.SetForegroundColour( wx.Colour( 0, 255, 0 ) )
+		self.m_textCtrl_console.SetBackgroundColour( wx.Colour( 0, 0, 0 ) )
+		
+		bSizer16.Add( self.m_textCtrl_console, 1, wx.ALL|wx.EXPAND, 5 )
+		
+		
+		bSizer6.Add( bSizer16, 1, wx.EXPAND, 5 )
 		
 		
 		self.m_panel2.SetSizer( bSizer6 )
